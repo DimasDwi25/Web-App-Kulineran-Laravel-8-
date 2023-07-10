@@ -88,17 +88,21 @@
             </div>
 
             <div class="row">
-                @if($cek_alamat > 0)
+
+                @isset($cek_alamat)
                 <div class="col-md-12">
-                <a href="{{ route('user.checkout') }}" class="btn btn-primary btn-lg py-3 btn-block" >Checkout</a>
-                <small>Jika Merubah Quantity Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
+                    <a href="{{ route('user.checkout') }}" class="btn btn-primary btn-lg py-3 btn-block" >Checkout</a>
+                    <small>Jika Merubah Quantity Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
                 </div>
-                @else
+                @endisset
+
+                @empty($cek_alamat)
                 <div class="col-md-12">
-                <a href="{{ route('user.alamat') }}" class="btn btn-primary btn-lg py-3 btn-block" >Atur Alamat</a>
-                <small>Anda Belum Mengatur Alamat</small>
+                    <a href="{{ route('user.alamat') }}" class="btn btn-primary btn-lg py-3 btn-block" >Atur Alamat</a>
+                    <small>Anda Belum Mengatur Alamat</small>
                 </div>
-                @endif
+                @endempty
+
             </div>
             </div>
         </div>

@@ -13,4 +13,9 @@ class Alamat extends Model
     protected $fillable = [
         'alamat_detail', 'users_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }

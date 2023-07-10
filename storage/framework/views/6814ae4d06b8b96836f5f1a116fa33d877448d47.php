@@ -12,24 +12,26 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <?php if(count($item)): ?>
+            <?php if(isset($item->alamat_detail)): ?>)
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
                                 <h3 for="">Alamat Sekarang </h3><br>
-                                <?php echo e($item[0]->alamat_detail); ?>
+                                <?php echo e($item->alamat_detail); ?>
 
                             </div>
                         </div>
                         <div class="row">
                         <div class="col-md-12 text-right">
-                                <a href="<?php echo e(route('user.alamat.ubah', $item[0]->id)); ?>" class="btn btn-primary">Ubah Alamat</a>
+                                <a href="<?php echo e(route('user.alamat.ubah', $item->id)); ?>" class="btn btn-primary">Ubah Alamat</a>
                         </div>
                         </div>
                     </div>
                 </div>
-            <?php else: ?>
+            <?php endif; ?>
+
+            <?php if(empty($item->alamat_detail)): ?>
                 <div class="card">
                     <div class="card-body">
                         <form action="<?php echo e(route('user.alamat.simpan')); ?>" method="POST">

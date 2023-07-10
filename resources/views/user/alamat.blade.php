@@ -13,23 +13,25 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            @if (count($item))
+            @isset($item->alamat_detail))
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-8">
                                 <h3 for="">Alamat Sekarang </h3><br>
-                                {{ $item[0]->alamat_detail }}
+                                {{ $item->alamat_detail }}
                             </div>
                         </div>
                         <div class="row">
                         <div class="col-md-12 text-right">
-                                <a href="{{ route('user.alamat.ubah', $item[0]->id) }}" class="btn btn-primary">Ubah Alamat</a>
+                                <a href="{{ route('user.alamat.ubah', $item->id) }}" class="btn btn-primary">Ubah Alamat</a>
                         </div>
                         </div>
                     </div>
                 </div>
-            @else
+            @endisset
+
+            @empty($item->alamat_detail)
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('user.alamat.simpan') }}" method="POST">
@@ -45,7 +47,7 @@
                         </form>
                     </div>
                 </div>
-            @endif
+            @endempty
         </div>
         <div class="col-md-2"></div>
     </div>

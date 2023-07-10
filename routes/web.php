@@ -23,6 +23,7 @@ Route::get('/', 'user\WelcomeController@index')->name('home');
 Route::get('/home','user\WelcomeController@index')->name('home2');
 Route::get('/kontak', 'user\WelcomeController@kontak')->name('kontak');
 Route::get('/produk', 'user\FoodController@index')->name('produk');
+Route::get('/produk/kategori/{id}', 'user\FoodController@filter')->name('produk.filter');
 Route::get('/produk/{id}', 'user\FoodController@detail')->name('user.produk.detail');
 
 /*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
@@ -89,6 +90,9 @@ Route::group(['middleware' => ['auth','CheckRole:customer']],function(){
     Route::get('/order/pembayaran/{id}', 'user\OrderController@pembayaran')->name('user.order.pembayaran');
     Route::post('/order/kirimbukti/{id}', 'user\OrderController@buktiPembayaran')->name('user.order.kirimbukti');
     Route::get('/order/pesananditerima/{id}', 'user\OrderController@pesananditerima')->name('user.order.pesananditerima');
+    Route::resource('orders', user\OrderController::class)->only(['show']);
+    // Route::get('/order/midtrans/{id}', 'user\OrderController@indexMidtrans')->name('user.order.midtrans');
+    // Route::get('order/midtrans/show/{id}', 'user\OrderController@show')->name('user.order.show');
 
     Route::get('/checkout', 'user\CheckoutController@index')->name('user.checkout');
 });

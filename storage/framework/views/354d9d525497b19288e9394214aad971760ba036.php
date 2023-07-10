@@ -28,13 +28,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $order; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $orders): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td><?php echo e($o->invoice); ?></td>
-                    <td><?php echo e($o->sub_total + $o->biaya_cod); ?></td>
-                    <td><?php echo e($o->name); ?></td>
+                    <td><?php echo e($orders->invoice); ?></td>
+                    <td><?php echo e($orders->sub_total + $orders->biaya_cod); ?></td>
+                    <td><?php echo e($orders->name); ?></td>
                     <td>
-                    <a href="<?php echo e(route('user.order.pembayaran',$o->id)); ?>" class="btn btn-success">Bayar</a>
+                    <a href="<?php echo e(route('orders.show', $orders->id)); ?>" class="btn btn-success">Bayar</a>
                     <a href="" onclick="return confirm('Yakin ingin membatalkan pesanan')" class="btn btn-danger">Batalkan</a>
                     </td>
                 </tr>
@@ -66,20 +66,20 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $dicek; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $dicek; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $orders): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td><?php echo e($o->invoice); ?></td>
-                    <td><?php echo e($o->sub_total + $o->biaya_cod); ?></td>
+                    <td><?php echo e($orders->invoice); ?></td>
+                    <td><?php echo e($orders->sub_total + $orders->biaya_cod); ?></td>
                     <td>
-                        <?php if($o->name == 'Perlu Di Cek'): ?>
+                        <?php if($orders->name == 'Perlu Di Cek'): ?>
                         Sedang Di Cek
                         <?php else: ?>
-                        <?php echo e($o->name); ?>
+                        <?php echo e($orders->name); ?>
 
                         <?php endif; ?>
                     </td>
                     <td>
-                    <a href="<?php echo e(route('user.order.detail',$o->id)); ?>" class="btn btn-success">Detail</a>
+                    <a href="<?php echo e(route('user.order.detail',$orders->id)); ?>" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -107,13 +107,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $histori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $o): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $histori; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $orders): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td><?php echo e($o->invoice); ?></td>
-                    <td><?php echo e($o->sub_total + $o->biaya_cod); ?></td>
-                    <td><?php echo e($o->name); ?></td>
+                    <td><?php echo e($orders->invoice); ?></td>
+                    <td><?php echo e($orders->sub_total + $orders->biaya_cod); ?></td>
+                    <td><?php echo e($orders->name); ?></td>
                     <td>
-                    <a href="<?php echo e(route('user.order.detail',$o->id)); ?>" class="btn btn-success">Detail</a>
+                    <a href="<?php echo e(route('user.order.detail',$orders->id)); ?>" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

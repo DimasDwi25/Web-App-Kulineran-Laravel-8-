@@ -9,50 +9,7 @@
 
 <div class="site-section">
     <div class="container">
-        <h2>Filter</h2>
-        <form action="/produk" method="get">
-            <?php echo csrf_field(); ?>
-            <div class="row mb-3">
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Kategori</label>
-                    <select name="categories_id" class="form-select">
-                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($categorie->id); ?>" selected='<?php echo e(isset($_GET['categories_id']) && $_GET['categories_id'] == $categorie->id); ?>'><?php echo e($categorie->name); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                </div>
-                
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Harga minimal</label>
-                    <input name="min_price" type="number" class="form-control" placeholder="min-price" value="<?php echo e(isset($_GET['min_price']) ? $_GET['min_price'] : ''); ?>">  
-                </div>
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Harga maksimal</label>
-                    <input name="max_price" type="number" class="form-control" placeholder="max-price" value="<?php echo e(isset($_GET['max_price']) ? $_GET['max_price'] : ''); ?>">  
-                </div>
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Kategori</label>
-                    <select name="categories_id" class="form-select">
-                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($categorie->id); ?>" selected='<?php echo e(isset($_GET['categories_id']) && $_GET['categories_id'] == $categorie->id); ?>'><?php echo e($categorie->name); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                </div>
-                
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Harga minimal</label>
-                    <input name="min_price" type="number" class="form-control" placeholder="min-price" value="<?php echo e(isset($_GET['min_price']) ? $_GET['min_price'] : ''); ?>">  
-                </div>
-                <div class="col-sm-2">
-                    <label for="" class="form-label">Harga maksimal</label>
-                    <input name="max_price" type="number" class="form-control" placeholder="max-price" value="<?php echo e(isset($_GET['max_price']) ? $_GET['max_price'] : ''); ?>">  
-                </div>
-                
-                <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary mt-4">Search</button>
-                </div>
-            </div>
-        </form>
+       
     <div class="row mb-5">
         <div class="col-md-9 order-2">
         <div class="row mb-5">

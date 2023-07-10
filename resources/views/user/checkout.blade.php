@@ -71,7 +71,7 @@
 
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Pesan Sekarang</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit"">Pesan Sekarang</button>
                     <small>Mohon periksa alamat penerima dengan benar agar tidak terjadi salah pengiriman</small>
                   </div>
                 </form>

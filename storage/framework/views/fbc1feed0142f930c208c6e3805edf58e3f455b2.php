@@ -87,17 +87,21 @@
             </div>
 
             <div class="row">
-                <?php if($cek_alamat > 0): ?>
+
+                <?php if(isset($cek_alamat)): ?>
                 <div class="col-md-12">
-                <a href="<?php echo e(route('user.checkout')); ?>" class="btn btn-primary btn-lg py-3 btn-block" >Checkout</a>
-                <small>Jika Merubah Quantity Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
-                </div>
-                <?php else: ?>
-                <div class="col-md-12">
-                <a href="<?php echo e(route('user.alamat')); ?>" class="btn btn-primary btn-lg py-3 btn-block" >Atur Alamat</a>
-                <small>Anda Belum Mengatur Alamat</small>
+                    <a href="<?php echo e(route('user.checkout')); ?>" class="btn btn-primary btn-lg py-3 btn-block" >Checkout</a>
+                    <small>Jika Merubah Quantity Pada Keranjang Maka Klik Update Keranjang Dulu Sebelum Melakukan Checkout</small>
                 </div>
                 <?php endif; ?>
+
+                <?php if(empty($cek_alamat)): ?>
+                <div class="col-md-12">
+                    <a href="<?php echo e(route('user.alamat')); ?>" class="btn btn-primary btn-lg py-3 btn-block" >Atur Alamat</a>
+                    <small>Anda Belum Mengatur Alamat</small>
+                </div>
+                <?php endif; ?>
+
             </div>
             </div>
         </div>

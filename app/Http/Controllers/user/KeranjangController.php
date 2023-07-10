@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
+use App\Models\Alamat;
 use App\Models\Keranjang;
-use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class KeranjangController extends Controller
 {
@@ -22,7 +23,7 @@ class KeranjangController extends Controller
                         ->select('foods.name as nama_produk', 'foods.gambar', 'users.name', 'keranjang.*', 'foods.price')
                         ->where('keranjang.users_id', '=', $id_user)
                         ->get();
-        $cek_alamat = DB::table('alamat')->where('users_id',$id_user)->count();
+        $cek_alamat = Alamat::with('user')->where('users_id', $id_user)->get();
         $data = [
             'keranjangs' => $keranjangs,
             'cek_alamat' => $cek_alamat

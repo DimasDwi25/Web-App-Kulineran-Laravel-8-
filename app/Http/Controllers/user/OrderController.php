@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
-use App\Models\DetailOrder;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use App\Models\Order;
-use App\Models\StatusOrder;
 use App\Models\Rekening;
+use App\Models\DetailOrder;
+use App\Models\StatusOrder;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Auth;
+use App\Services\Midtrans\CreateSnapTokenService;
 
 class OrderController extends Controller
 {
@@ -129,7 +130,7 @@ class OrderController extends Controller
 
             //menghapus data di keranjang pembeli
             DB::table('keranjang')->where('users_id',$user_id)->delete();
-            return redirect()->route('user.terimakasih');
+            return redirect()->route('user.order.sukses');
         }else{
             return redirect()->route('user.keranjang');
         }
@@ -193,5 +194,33 @@ class OrderController extends Controller
         $order->save();
 
         return redirect()->route('user.order');
+    }
+
+    // public function indexMidtrans($id)
+    // {
+    //     $id = Order::findOrFail($id);
+
+    //     $orders = Order::with('users','status_order')->get();
+
+    //     // dd($order);
+    //     return view('user.order.midtrans.index', compact('orders','id'));
+    // }
+
+    public function show(Order $order)
+    {
+        //
+
+        $snapToken = $order->snap_token;
+        if (is_null($snapToken)) {
+            // Jika snap token masih NULL, buat token snap dan simpan ke database
+
+            $midtrans = new CreateSnapTokenService($order);
+            $snapToken = $midtrans->getSnapToken();
+
+            $order->snap_token = $snapToken;
+            $order->save();
+        }
+        // dd($snapToken, $order);
+        return view('user.order.show', compact('order', 'snapToken'));
     }
 }

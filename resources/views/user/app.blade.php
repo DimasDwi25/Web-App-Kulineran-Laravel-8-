@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('shopper') }}/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
   </head>
+
   <body>
 
   <div class="site-wrap">
@@ -211,6 +212,8 @@
   <script src="{{ asset('shopper') }}/js/aos.js"></script>
 
   <script src="{{ asset('shopper') }}/js/main.js"></script>
+
+
     @yield('js')
   </body>
 </html>

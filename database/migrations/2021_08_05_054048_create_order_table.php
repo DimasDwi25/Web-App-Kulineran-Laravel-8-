@@ -17,7 +17,7 @@ class CreateOrderTable extends Migration
             $table->id();
             $table->string('invoice');
             $table->unsignedBigInteger('users_id');
-            $table->integer('sub_total');
+            $table->decimal('sub_total', 10, 2);
             $table->string('no_resi')->nullable();
             $table->unsignedBigInteger('status_order_id');
             $table->string('metode_pembayaran');

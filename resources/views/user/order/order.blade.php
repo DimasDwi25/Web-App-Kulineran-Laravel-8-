@@ -29,13 +29,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($order as $o)
+                @foreach($order as $orders)
                 <tr>
-                    <td>{{ $o->invoice }}</td>
-                    <td>{{ $o->sub_total + $o->biaya_cod }}</td>
-                    <td>{{ $o->name }}</td>
+                    <td>{{ $orders->invoice }}</td>
+                    <td>{{ $orders->sub_total + $orders->biaya_cod }}</td>
+                    <td>{{ $orders->name }}</td>
                     <td>
-                    <a href="{{ route('user.order.pembayaran',$o->id) }}" class="btn btn-success">Bayar</a>
+                    <a href="{{ route('orders.show', $orders->id) }}" class="btn btn-success">Bayar</a>
                     <a href="" onclick="return confirm('Yakin ingin membatalkan pesanan')" class="btn btn-danger">Batalkan</a>
                     </td>
                 </tr>
@@ -67,19 +67,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($dicek as $o)
+                @foreach($dicek as $orders)
                 <tr>
-                    <td>{{ $o->invoice }}</td>
-                    <td>{{ $o->sub_total + $o->biaya_cod }}</td>
+                    <td>{{ $orders->invoice }}</td>
+                    <td>{{ $orders->sub_total + $orders->biaya_cod }}</td>
                     <td>
-                        @if($o->name == 'Perlu Di Cek')
+                        @if($orders->name == 'Perlu Di Cek')
                         Sedang Di Cek
                         @else
-                        {{ $o->name }}
+                        {{ $orders->name }}
                         @endif
                     </td>
                     <td>
-                    <a href="{{ route('user.order.detail',$o->id) }}" class="btn btn-success">Detail</a>
+                    <a href="{{ route('user.order.detail',$orders->id) }}" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 @endforeach
@@ -107,13 +107,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($histori as $o)
+                @foreach($histori as $orders)
                 <tr>
-                    <td>{{ $o->invoice }}</td>
-                    <td>{{ $o->sub_total + $o->biaya_cod }}</td>
-                    <td>{{ $o->name }}</td>
+                    <td>{{ $orders->invoice }}</td>
+                    <td>{{ $orders->sub_total + $orders->biaya_cod }}</td>
+                    <td>{{ $orders->name }}</td>
                     <td>
-                    <a href="{{ route('user.order.detail',$o->id) }}" class="btn btn-success">Detail</a>
+                    <a href="{{ route('user.order.detail',$orders->id) }}" class="btn btn-success">Detail</a>
                     </td>
                 </tr>
                 @endforeach

@@ -23,4 +23,9 @@ class Food extends Model
     {
         return url('storage/' . $value);
     }
+
+    public function detail_order()
+    {
+        return $this->hasMany(DetailOrder::class, 'id');
+    }
 }

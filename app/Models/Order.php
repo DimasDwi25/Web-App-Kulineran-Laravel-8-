@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $table = 'order';
     protected $fillable = [
-        'invoice', 'users_id', 'sub_total', 'no_resi', 'status_order_id', 'metode_pembayaran', 'pesan', 'no_hp', 'bukti_pembayaran', 'biaya_cod', 'ongkir'
+        'invoice', 'users_id', 'sub_total', 'no_resi', 'status_order_id', 'metode_pembayaran', 'pesan', 'no_hp', 'bukti_pembayaran', 'biaya_cod', 'ongkir', 'snap_token','number'
     ];
 
     public function status_order()
@@ -23,5 +23,11 @@ class Order extends Model
     {
         return $this->belongsTo(User::class, 'users_id', 'id');
     }
+
+    public function detail_order()
+    {
+        return $this->hasMany(DetailOrder::class, 'order_id', 'id');
+    }
+
 
 }

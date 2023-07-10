@@ -21,7 +21,7 @@ class FoodController extends Controller
     public function index()
     {
         //
-        $foods = Food::with('categories')->get();
+        $foods = Food::all();
 
         return view('admin.foods.index', compact('foods'));
     }

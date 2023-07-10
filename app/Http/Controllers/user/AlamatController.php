@@ -32,7 +32,7 @@ class AlamatController extends Controller
             'alamat_detail' => $request->alamat_detail,
         ]);
 
-        return redirect()->route('user.alamat');
+        return redirect()->route('user.keranjang');
     }
 
     public function ubah($id)
