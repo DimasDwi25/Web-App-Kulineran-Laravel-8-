@@ -1,4 +1,4 @@
-# Project Name
+# KULINERAN
 > Outline a brief description of your project.
 > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
@@ -14,7 +14,7 @@
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 <!-- * [License](#license) -->
-
+Project "Kulineran" adalah aplikasi pemesanan makanan yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk memudahkan pengguna dalam memesan makanan secara online
 
 ## General Information
 - Provide general information about your project here.
